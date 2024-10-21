@@ -1,17 +1,76 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      Carioca Farma
     </ion-title>
+    <ion-card-subtitle class="sub-title">
+      Produtos
+    </ion-card-subtitle>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <div *ngIf="listaProdutos.length == 0" class="vazio">
+    <ion-button (click)="abrirModal()">
+      Adicionar Produto
+    </ion-button>
+  </div>
+  <div *ngIf="listaProdutos.length > 0">
+    <div *ngFor="let produto of listaProdutos">
+      <div class="item-produto">
+        <ion-row>
+          <ion-col size="8">
+            <ion-label><h1>{{produto.NomeProduto}}</h1></ion-label>
+            <ion-label>{{produto.Quantidade}}</ion-label>
+          </ion-col>
+          <ion-col>
+            <div class="button-container">
+              <ion-button (click)="removeProduto(produto.NomeProduto)"><ion-icon name="trash"></ion-icon></ion-button>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <div class="preenchido">
+      <ion-button (click)="abrirModal()">
+        Adicionar Produto
+      </ion-button>
+    </div>
+  </div>
 </ion-content>
+
+
+<!-- <ion-modal trigger="openModal" (willDismiss)="onWillDismissEvent()" #modal>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-button (click)="cancel()">Cancelar</ion-button>
+        </ion-buttons>
+        <ion-title style="display: flex; text-align: center;">Novo Produto</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+      <ion-item>
+        <ion-input
+        label="Nome do produto"
+        labelPlacement="stacked"
+        type="text"
+        placeholder="Insira o nome do produto"
+        [(ngModel)]="produtoAtual.NomeProduto">
+        </ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-input
+        label="Quantidade do produto"
+        labelPlacement="stacked"
+        type="number"
+        placeholder="Insira a quantidade do produto"
+        [(ngModel)]="produtoAtual.Quantidade">
+        </ion-input>
+      </ion-item>
+    </ion-header>
+  </ng-template>
+</ion-modal> -->

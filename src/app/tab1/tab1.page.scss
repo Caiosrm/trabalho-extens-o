@@ -1,0 +1,33 @@
+.sub-title{
+    margin-left: 20px;
+}
+
+.vazio{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 40vh;
+}
+
+.item-produto{
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    transition: background-color 0.3s;
+    border-radius: 10px;
+}
+.item-produto:hover {
+    background-color: #5a5a5a; /* Cor de fundo ao passar o mouse */
+    cursor: pointer; /* Muda o cursor ao passar o mouse */
+}
+
+.preenchido{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button-container{
+    display: flex;
+    justify-content: flex-end;
+}

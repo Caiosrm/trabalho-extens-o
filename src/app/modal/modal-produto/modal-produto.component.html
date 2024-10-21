@@ -1,0 +1,31 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="cancel()">Cancelar</ion-button>
+    </ion-buttons>
+    <ion-title style="display: flex; text-align: center;">Novo Produto</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="confirm()" [strong]="true">Confirmar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-item>
+    <ion-input
+    label="Nome do produto"
+    labelPlacement="stacked"
+    type="text"
+    placeholder="Insira o nome do produto"
+    [(ngModel)]="produtoAtual.NomeProduto">
+    </ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input
+    label="Quantidade do produto"
+    labelPlacement="stacked"
+    type="number"
+    placeholder="Insira a quantidade do produto"
+    [(ngModel)]="produtoAtual.Quantidade">
+    </ion-input>
+  </ion-item>
+</ion-header>
